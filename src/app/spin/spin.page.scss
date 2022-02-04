@@ -1,0 +1,27 @@
+#canvasContainer {
+    position: relative;
+    width: 1100px;
+}
+ 
+#canvas {
+    z-index: 1;
+}
+ 
+#prizePointer {
+    position: absolute;
+    left: 510px;
+    top: 20px;
+    width: 80px;
+    z-index: 999;
+}
+
+    .center{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-image: url('../../assets/img/logo-winbox.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    }

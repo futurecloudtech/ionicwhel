@@ -1,5 +1,7 @@
 {
   "name": "lottery",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

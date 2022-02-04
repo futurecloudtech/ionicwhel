@@ -32,7 +32,9 @@
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
-            "scripts": [],
+            "scripts": ["node_modules/gsap/src/minified/TimelineMax.min.js",
+              "node_modules/gsap/src/minified/TweenMax.min.js",
+              "src/assets/JS/Winwheel.js","node_modules/konva/konva.js","node_modules/konva/konva.min.js"],
             "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,

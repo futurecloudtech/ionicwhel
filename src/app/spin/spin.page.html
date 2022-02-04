@@ -1,0 +1,29 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar  style="--background:transparent">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="background-image">
+  <div class="center" >
+    <div id="canvasContainer">
+      <canvas id="canvas" width="1100" height="880"   data-responsiveMinWidth="180"
+      data-responsiveScaleHeight="true"
+      data-responsiveMargin="50">
+          Canvas not supported, please user another browser.
+      </canvas>
+      <img id="prizePointer" src="./assets/img/down.png"  />
+  </div>
+  </div>
+</ion-content>
+<ion-footer style="--background: transparent;" class="ion-no-border">
+  <ion-toolbar style="--background: transparent;" class="ion-text-center">
+    <ion-button  style="max-width: 50%;font-weight: bold;--background: rgb(255, 230, 0);--border-radius: 20px;min-width: 50%;" size="large" (click)="calculatePrize()">
+      Spin
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+

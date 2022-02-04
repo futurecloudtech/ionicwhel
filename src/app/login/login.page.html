@@ -1,0 +1,103 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar  style="--background:transparent">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-image">
+  <ion-list class="ion-text-center" *ngIf="!register" style="background:transparent">
+    <ion-row >
+      <ion-col size="12">
+        <ion-button (click)="signInWithFB()" style="--background:#4267B2">
+          <ion-icon slot="start" name="logo-facebook"></ion-icon>
+          Facebook Login
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button (click)="signInWithGoogle()" style="--background:#db4a39">
+          <ion-icon slot="start" name="logo-google"></ion-icon>
+          Google Login
+        </ion-button> 
+        </ion-col>
+        <ion-col size="12">
+          <ion-button (click)="signInEmail()" >
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+            Email
+          </ion-button> 
+        </ion-col>
+    </ion-row>
+
+   
+
+  
+
+  </ion-list>
+ 
+
+  <div *ngIf="register" >
+    <ion-list  style="background: rgba(0, 0, 0, 0.377); max-width:400px;margin: auto;padding: 10px;">
+      <ion-list-header style="font-size: 18px;padding: 10px;">
+        ✏️ Fill in the form and submit your entry to get your chance to spin the wheel.
+Sila isikan borang and hantarkan penyertaan anda untuk mendapatkan peluang untuk memutar roda.
+      </ion-list-header>
+      <ion-row style="--background:transparent;">
+        <ion-col size="6" style="--background:transparent;">
+          <ion-item style="--background:transparent;border: white solid ;border-width: 0.2px; ">
+            <ion-label position="stacked">First Name *</ion-label>
+            <ion-input [(ngModel)]="CurrenUser.firstname"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item style="--background:transparent;border: white solid;border-width: 0.2px; ">
+            <ion-label position="stacked">Last Name *</ion-label>
+            <ion-input [(ngModel)]="CurrenUser.lastname"></ion-input>
+          </ion-item>
+          </ion-col>
+      </ion-row>
+     
+     <ion-col size="12">
+      <ion-item style="--background:transparent;border: white solid;border-width: 0.2px; margin: 2px;">
+        <ion-label position="stacked">Email *</ion-label>
+        <ion-input type="email" [disabled]="disableemail" [(ngModel)]="CurrenUser.email"></ion-input>
+      </ion-item>
+     </ion-col>
+     <ion-col size="12">
+      <ion-item style="--background:transparent;border: white solid;border-width: 0.2px; margin: 2px;">
+        <ion-label position="stacked">Phone Number *</ion-label>
+        <ion-input  [(ngModel)]="CurrenUser.phone"></ion-input>
+      </ion-item>
+      </ion-col>
+      <ion-col>
+      <ion-item style="--background:transparent;border: white solid;border-width: 0.2px; margin: 2px;">
+        <ion-label position="stacked">Winbox UID *</ion-label>
+        <ion-input [(ngModel)]="CurrenUser.winboxuid"></ion-input>
+      </ion-item>
+      </ion-col>
+      <ion-item style="--background:transparent; " class="ion-no-margin ion-no-padding" >
+        <ion-label style="font-size: 10px;">I HAVE READ AND ACCEPT THE TERMS AND CONDITIONS.</ion-label>
+        <ion-checkbox class="ion-no-margin ion-no-padding" style="margin-right: 5px;" slot="start" [(ngModel)]="termcheck"></ion-checkbox>
+      </ion-item>
+      <ion-item style="--background:transparent;" class="ion-no-margin ion-no-padding" >
+        <ion-label style="font-size: 10px;">I HAVE READ AND ACCEPT THE PRIVACY POLICY.</ion-label>
+        <ion-checkbox class="ion-no-margin ion-no-padding" style="margin-right: 5px;"  slot="start"[(ngModel)]="policycheck" ></ion-checkbox>
+      </ion-item>
+      <ion-item style="--background:rgba(255, 255, 255, 0.089);margin: 5px;padding: 2px;" >
+        <ion-text style="font-size: 13px;">
+          The company responsible for processing your data is Winbox located in Malaysia. The data provided in the contest will not be passed to any third party. If there are any inquiries please email to winboxvip@gmail.com. More information in the Privacy Policy.
+        </ion-text>
+      </ion-item>
+      <ion-col>
+        <ion-button (click)="submit()" expand="full" style="font-size: 15px;--background:#ffc400;color:black;font-weight: bold;" size="large">
+          SUBMIT
+        </ion-button>
+        </ion-col>
+        <div class="ion-text-center" (click)="goback()">
+          <ion-label style="font-size: 10px;">GO BACK</ion-label>
+        </div>
+       
+    </ion-list>
+  </div>
+
+</ion-content>

@@ -91,6 +91,21 @@ register(json){
   return this.http.post(this.baseUrl+'adminuser.php',body.toString(),{ headers: this.headers }).pipe(retry(3), catchError(this.handleError));
 }
 
+checkInviteCode(uid,email){
+  let body = new URLSearchParams();
+  body.set('type', '13');
+  body.set('uid', uid);
+  body.set('email', email);
+  return this.http.post(this.baseUrl+'adminuser.php',body.toString(),{ headers: this.headers }).pipe(retry(3), catchError(this.handleError));
+}
+
+getPrize(){
+  let body = new URLSearchParams();
+  body.set('type', '10');
+  return this.http.post(this.baseUrl+'adminuser.php',body.toString(),{ headers: this.headers }).pipe(retry(3), catchError(this.handleError));
+}
+
+
 utf8_to_b64( str ) {
 return window.btoa(encodeURIComponent(str));
 }

@@ -34,7 +34,7 @@ export class AuthenticationService {
 
   login(email) {
     this.storage.set('CUSTOMER_INFO', email).then((response) => {
-      this.router.navigate(['spin']);
+      this.router.navigate(['cusinvitecode']);
       this.authState.next(true);
     });
   }

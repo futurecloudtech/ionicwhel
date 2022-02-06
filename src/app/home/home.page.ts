@@ -80,7 +80,7 @@ export class HomePage implements OnInit {
   }
 
   tospin(){
-    this.router.navigate(['/spin'])
+    this.router.navigate(['/cusinvitecode'], {replaceUrl: true});
   }
 
 }

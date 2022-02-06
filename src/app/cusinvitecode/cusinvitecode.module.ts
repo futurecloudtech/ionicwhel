@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InvitecodePageRoutingModule } from './invitecode-routing.module';
+import { CusinvitecodePageRoutingModule } from './cusinvitecode-routing.module';
 
-import { InvitecodePage } from './invitecode.page';
+import { CusinvitecodePage } from './cusinvitecode.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InvitecodePageRoutingModule
+    CusinvitecodePageRoutingModule
   ],
-  declarations: [InvitecodePage]
+  declarations: [CusinvitecodePage]
 })
-export class InvitecodePageModule {}
+export class CusinvitecodePageModule {}

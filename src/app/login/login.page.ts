@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
@@ -25,7 +25,12 @@ export class LoginPage implements OnInit {
   disableemail :boolean = false;
   termcheck : boolean = false;
   policycheck :boolean= false;
-  constructor(private authService: SocialAuthService,private adminApiServices:AdminapiService,private toast :ToastController,private auth:AuthenticationService) { }
+  constructor(
+    private authService: SocialAuthService,
+    private adminApiServices:AdminapiService,
+    private alertController : AlertController,
+    private toast :ToastController,
+    private auth:AuthenticationService) { }
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
@@ -39,8 +44,44 @@ export class LoginPage implements OnInit {
  
   }
 
-  signInEmail(){
-    this.register = true;
+  async  signInEmail(){
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Login',
+        subHeader : 'Please Enter Your Email',
+        inputs: [
+          {
+            name: 'email',
+            type: 'text',
+            placeholder: 'example : example@gmail.com'
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              console.log('Confirm Cancel');
+            }
+          }, {
+            text: 'Ok',
+            handler: (res) => {
+              if(!res.email){
+                this.presentToast('Please Enter Email');
+                return false;
+              }
+              if(!this.validateEmail(res.email)){
+                this.presentToast('Email Invalid');
+                return false;
+              }
+              this.checkloginmember(res);
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
   }
 
   checkloginmember(user){
